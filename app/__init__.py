@@ -6,19 +6,38 @@ imports between different files within that package. The file can be empty or
 can include initialization code.
 """
 
+import os
 from flask import Flask
+from flask_debugtoolbar import DebugToolbarExtension
 from config.config import DevelopmentConfig, ProductionConfig, TestingConfig
 
 
-def create_app():
-    """Initialization for Flask."""
-    app = Flask(__name__)
+def create_app(env='development'):
+    """
+    Factory function that creates and configures the Flask application
+    based on the environment (development, production, or testing).
+    """
+    app = Flask(__name__, template_folder="../templates")
 
-    # Load configuration
-    app.config.from_object(DevelopmentConfig)
+    # Dynamically load the configuration based on the environment
+    if env == 'development':
+        app.config.from_object(DevelopmentConfig)
+    elif env == 'production':
+        app.config.from_object(ProductionConfig)
+    elif env == 'testing':
+        app.config.from_object(TestingConfig)
+    else:
+        raise ValueError(f"Invalid environment: {env}")
 
-    # Register routes from views
-    from .views import main_blueprint
+    # Load the SECRET_KEY and other variables from environment
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'supersecret')
+
+    # Register routes from views using relative import
+    from app.views import main_blueprint
     app.register_blueprint(main_blueprint)
+
+    # Enable Debug Toolbar in development
+    if app.config.get('DEBUG', False):
+        DebugToolbarExtension(app)
 
     return app

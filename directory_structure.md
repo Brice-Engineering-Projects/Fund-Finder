@@ -10,6 +10,12 @@
 │   ├── config.py           # Configuration variables
 │
 ├── .env                    # Stores environment variables like API keys
-├── app.py                  # Entry point for the Flask app
+├── main.py                 # Entry point for the Flask app
 ├── requirements.txt        # Python package dependencies
 └── README.md               # Project documentation
+└── /.vscode               # VS Code configuration folder
+│   └── settings.json      # Workspace-specific VS Code settings
+│
+├── /templates
+│   ├── base.html          # base html file that is extended to all other html files
+│   ├── home.html          # home html file which renders the homepage

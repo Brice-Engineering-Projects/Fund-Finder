@@ -8,7 +8,7 @@ import os
 import requests
 
 
-class FundingAPI:
+class FundingOpportunities:
     """
     A class to represent the funding opportunities API client.
 

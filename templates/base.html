@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind Link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <title>{% block title %} Fund Finder {% endblock %}</title>
+  </head>
+  <body class="flex flex-col min-h-screen bg-purple-400">
+    <header class="bg-black p-4 fixed top-0 left-0 w-full z-50">
+        <nav class="flex justify-between items-center">
+          <div>
+          <a href="/" class="text-white text-xl font-bold hover:bg-red-500 py-2 px-4 rounded transition-colors duration-300 ease-in-out cursor-pointer">
+            Funding Opportunities
+          </a>
+        </div>
+          <div class="flex space-x-4">
+            <!--
+            <a href="/#about" class="text-white hover:bg-red-500 py-2 px-4 rounded transition-colors duration-300 ease-in-out cursor-pointer">
+              About
+            </a>
+            -->
+            <a href="/#search-form" class="text-white hover:bg-red-500 py-2 px-4 rounded transition-colors duration-300 ease-in-out cursor-pointer">
+              Search Input Form
+            </a>
+        </nav>
+    </header>
+    <main id="main" class="flex-grow">
+        {% block content %}{% endblock %}
+        </main>
+        <footer class="bg-black p-4 text-center text-white fixed bottom-0 left-0 w-full z-50">
+            &copy; {{ current_year }} Funding Opportunities. All rights reserved.
+          </footer>
+
+  </body>
+</html>
