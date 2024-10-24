@@ -2,7 +2,8 @@
 
 from flask import Blueprint, request, jsonify
 # Fixing the correct import
-from .business_logic import FundingOpportunities
+# from .business_logic import FundingOpportunities
+from .mocky_api import MockyAPI
 
 # Create a blueprint for organizing routes
 main_blueprint = Blueprint('main', __name__)
@@ -35,7 +36,8 @@ def search():
         return jsonify({'error': 'Query parameter is required'}), 400
 
     try:
-        results = FundingOpportunities(query)
+        # results = FundingOpportunities(query)
+        results = MockyAPI(query)  # Fake API Call
         return jsonify(results), 200
     except ValueError as e:
         return jsonify({'error': 'Invalid input: ' + str(e)}), 400
