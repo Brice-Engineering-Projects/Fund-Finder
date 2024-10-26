@@ -1,45 +1,39 @@
-{% extends "base.html" %} 
-{% block title %} Funding Opportunities Search Form {% endblock title %}
+{% extends "base.html" %}
+{% block title %} Funding Opportunities: Section 1 - Basic Information {% endblock title %}
 
 {% block content %}
 <div class="flex flex-col items-center min-h-screen bg-purple-400">
-    <div class="flex flex-col items-center min-h-screen bg-purple-400 max-w-3xl mx-auto p-16">
-        <div id="search-form" class="flex flex-col items-center min-h-screen bg-white max-w-3xl mx-auto p-20">
-            <h2 class="text-3xl font-bold text-black">Funding Opportunities: Section 1 </h2>
-            <form action="/submit-search" method="POST" class="w-full mt-8">
-                <!-- Form inputs go here -->
-                <div class="mb-4">
-                    <h3 class="text-xl font-bold text-black mb-2">1.  Basic Information</h3>
-                    <label for="applicant-name" class="block text-black text-lg font-bold mb-2">Applicant Name:</label>
-                    <input type="text" id="applicant-name" name="applicant-name" class="w-full px-3 py-2 border rounded" placeholder="Applicant or Engineer">
-                </div>
-                <div class="mb-4">
-                    <label for="contact-person" class="block text-black text-lg font-bold mb-2">Contact Person:</label>
-                    <input type="text" id="contact-person" name="contact-person" class="w-full px-3 py-2 border rounded" placeholder="First and Last Name">
-                </div>
-                <div class="mb-4">
-                    <label for="phone" class="block text-black text-lg font-bold mb-2">Phone:</label>
-                    <input type="text" id="phone" name="phone" class="w-full px-3 py-2 border rounded" placeholder="phone number">
-                </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-black text-lg font-bold mb-2">Email:</label>
-                    <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded" placeholder="Email Address">
-                </div>
-                <div class="mb-4">
-                    <label for="duns" class="block text-black text-lg font-bold mb-2">DUNS:</label>
-                    <input type="text" id="duns" name="duns" class="w-full px-3 py-2 border rounded" placeholder="DUNS Number">
-                </div>
-                <div class="mb-4">
-                    <label for="ein" class="block text-black text-lg font-bold mb-2">EIN:</label>
-                    <input type="text" id="ein" name="ein" class="w-full px-3 py-2 border rounded" placeholder="EIN">
-                </div>
-                <div class="flex justify-center">
-                    <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                        Section 2
-                    </button>
-                </div>
-            </form>
-        </div>
+    <div class="flex flex-col items-center min-h-screen bg-purple-400 max-w-3xl mx-auto p-24">
+        <h2 class="text-3xl font-bold text-black">Section 1: Basic Information</h2>
+        <form action="/project-details" method="POST" class="w-full mt-8">
+            <div class="mb-4">
+                <label for="applicant-name" class="block text-black text-lg font-bold mb-2">Applicant Name:</label>
+                <input type="text" id="applicant-name" name="applicant-name" class="w-full px-3 py-2 border rounded" placeholder="Applicant or Engineer" required>
+            </div>
+            <div class="mb-4">
+                <label for="contact-person" class="block text-black text-lg font-bold mb-2">Contact Person:</label>
+                <input type="text" id="contact-person" name="contact-person" class="w-full px-3 py-2 border rounded" placeholder="First and Last Name" required>
+            </div>
+            <div class="mb-4">
+                <label for="phone" class="block text-black text-lg font-bold mb-2">Phone:</label>
+                <input type="text" id="phone" name="phone" class="w-full px-3 py-2 border rounded" placeholder="Phone Number" required>
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-black text-lg font-bold mb-2">Email:</label>
+                <input type="email" id="email" name="email" class="w-full px-3 py-2 border rounded" placeholder="Email Address" required>
+            </div>
+            <div class="mb-4">
+                <label for="duns" class="block text-black text-lg font-bold mb-2">DUNS Number:</label>
+                <input type="text" id="duns" name="duns" class="w-full px-3 py-2 border rounded" placeholder="DUNS Number" required>
+            </div>
+            <div class="mb-4">
+                <label for="ein" class="block text-black text-lg font-bold mb-2">EIN:</label>
+                <input type="text" id="ein" name="ein" class="w-full px-3 py-2 border rounded" placeholder="EIN" required>
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Go to Section 2</button>
+            </div>
+        </form>
     </div>
 </div>
-                {% endblock content %}
+{% endblock content %}

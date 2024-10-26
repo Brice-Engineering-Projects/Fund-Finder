@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %} Funding Opportunities: Section 4 - Review Submission {% endblock title %}
+
+{% block content %}
+<div class="flex flex-col items-center min-h-screen bg-purple-400">
+    <div class="flex flex-col items-center min-h-screen bg-purple-400 max-w-3xl mx-auto p-24">
+        <h2 class="text-3xl font-bold text-black">Section 4: Review Submission</h2>
+        <!-- Here you can display all collected form data for review -->
+        <form action="/submit-final" method="POST" class="w-full mt-8">
+            <!-- Review the collected data (you can loop through session data here if using sessions) -->
+            <div class="mb-4">
+                <h3 class="text-xl font-bold text-black mb-2">Applicant Name:</h3>
+                <p>{{ data.applicant_name }}</p>
+            </div>
+            <div class="mb-4">
+                <h3 class="text-xl font-bold text-black mb-2">Project Title:</h3>
+                <p>{{ data.project_title }}</p>
+            </div>
+            <!-- Add more fields as needed -->
+
+            <div class="flex justify-center">
+                <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Submit Application</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

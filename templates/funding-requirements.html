@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %} Funding Opportunities: Section 3 - Funding Requirements {% endblock title %}
+
+{% block content %}
+<div class="flex flex-col items-center min-h-screen bg-purple-400">
+    <div class="flex flex-col items-center min-h-screen bg-purple-400 max-w-3xl mx-auto p-24">
+        <h2 class="text-3xl font-bold text-black">Section 3: Funding Requirements</h2>
+        <form action="/review-submission" method="POST" class="w-full mt-8">
+            <div class="mb-4">
+                <label for="mhi" class="block text-black text-lg font-bold mb-2">Median Household Income (MHI) in USD:</label>
+                <input type="number" id="mhi" name="mhi" class="w-full px-3 py-2 border rounded" placeholder="Enter MHI for your municipality" required>
+            </div>
+            <div class="mb-4">
+                <label for="population" class="block text-black text-lg font-bold mb-2">Municipality Population:</label>
+                <input type="number" id="population" name="population" class="w-full px-3 py-2 border rounded" placeholder="Enter your municipality's population" required>
+            </div>
+            <div class="mb-4">
+                <label for="poverty-rate" class="block text-black text-lg font-bold mb-2">Poverty Rate (as a percentage):</label>
+                <input type="number" step="0.01" id="poverty-rate" name="poverty-rate" class="w-full px-3 py-2 border rounded" placeholder="Enter the poverty rate (%)" required>
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Go to Section 4</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
+
