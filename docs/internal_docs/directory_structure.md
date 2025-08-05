@@ -1,21 +1,46 @@
-/flask_funding_app
+# Project Structure
+
+fundfinder/
+├── app/
+│   ├── __init__.py                   # App factory: register blueprints, load config
+│   ├── models/                     # User model (can be extended for auth)
+│   ├── templates/
+│   │   ├── auth/
+│   │   ├── main/
+│   │   └── shared/                   # Optional partials (navbar, layout)
+│   ├── static/                       # CSS/JS
+│   ├── auth/                         # Authentication blueprint
+│   │   ├── __init__.py
+│   │   ├── routes.py
+│   │   └── forms.py
+│   ├── main/                         # Main blueprint (user-facing form flows)
+│   │   ├── __init__.py
+│   │   ├── routes.py                 # Your current multi-step form routes
+│   │   └── forms.py                  # Optional if using WTForms
+│   ├── api/                          # API-focused logic
+│   │   ├── __init__.py
+│   │   ├── routes.py                  # Your existing `/search` route
+│   │   └── business_logic.py         # Your real funding logic (not mock)
+│   ├── services/
+│   │   └── mocky_api.py              # MockyAPI: fake API calls
+│   ├── utils.py                      # Optional: helper functions, constants
+│   └── config.py                     # Config classes (already exists)
 │
-├── /app
-│   ├── __init__.py         # Initializes Flask app and loads configuration
-│   ├── views.py            # Contains route and view logic
-│   ├── business_logic.py   # Business logic for API calls
+├── docs/
+│   ├── internal_docs/                # Internal project notes, architecture
+│   │   ├── endpoints.md              # API routes, structure
+│   │   ├── data_flows.md             # How form → logic → API → result
+│   │   └── auth_logic.md             # How login/session/roles work
+│   ├── README.md                     # Public-facing GitHub README
+│   └── ARCHITECTURE.md              # Optional deeper explanation
 │
-├── /config
-│   ├── __init__.py         # Allows this folder to be treated as a module
-│   ├── config.py           # Configuration variables
+├── tests/
+│   ├── conftest.py
+│   ├── test_auth.py
+│   ├── test_search.py
+│   └── test_forms.py
 │
-├── .env                    # Stores environment variables like API keys
-├── main.py                 # Entry point for the Flask app
-├── requirements.txt        # Python package dependencies
-└── README.md               # Project documentation
-└── /.vscode               # VS Code configuration folder
-│   └── settings.json      # Workspace-specific VS Code settings
-│
-├── /templates
-│   ├── base.html          # base html file that is extended to all other html files
-│   ├── home.html          # home html file which renders the homepage
+├── main.py                           # Entry point: imports create_app
+├── requirements.txt
+├── .env
+└── .flaskenv                         # Optional if using Flask CLI

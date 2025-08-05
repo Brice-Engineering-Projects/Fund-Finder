@@ -3,7 +3,7 @@
 from flask import Blueprint, request, jsonify
 # Fixing the correct import
 # from .business_logic import FundingOpportunities
-from .mocky_api import MockyAPI
+from app.services.mocky_api import MockyAPI
 
 # Create a blueprint for organizing routes
 main_blueprint = Blueprint('main', __name__)

@@ -9,7 +9,7 @@ can include initialization code.
 import os
 from flask import Flask
 from flask_debugtoolbar import DebugToolbarExtension
-from config.config import DevelopmentConfig, ProductionConfig, TestingConfig
+from app.config.settings import DevelopmentConfig, ProductionConfig, TestingConfig
 
 
 def create_app(env='development'):
@@ -33,7 +33,7 @@ def create_app(env='development'):
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'supersecret')
 
     # Register routes from views using relative import
-    from app.views import main_blueprint
+    from app.api.routes import main_blueprint
     app.register_blueprint(main_blueprint)
 
     # Enable Debug Toolbar in development
