@@ -3,11 +3,17 @@
 fundfinder/
 ├── app/
 │   ├── __init__.py                   # App factory: register blueprints, load config
-│   ├── models/                     # User model (can be extended for auth)
+│   ├── config/                
+│   │   ├── __init__.py
+│   │   └── settings.py               # Config classes (already exists)
+│   ├── models/                       # User model (can be extended for auth)
+│   │   ├── __init__.py
+│   │   └── models.py                 # Models
 │   ├── templates/
 │   │   ├── auth/
 │   │   ├── main/
-│   │   └── shared/                   # Optional partials (navbar, layout)
+│   │   ├── shared/                   # Optional partials (navbar, layout)
+│   │   └── base.html
 │   ├── static/                       # CSS/JS
 │   ├── auth/                         # Authentication blueprint
 │   │   ├── __init__.py
@@ -22,9 +28,9 @@ fundfinder/
 │   │   ├── routes.py                  # Your existing `/search` route
 │   │   └── business_logic.py         # Your real funding logic (not mock)
 │   ├── services/
+│   │   ├── __init__.py
 │   │   └── mocky_api.py              # MockyAPI: fake API calls
-│   ├── utils.py                      # Optional: helper functions, constants
-│   └── config.py                     # Config classes (already exists)
+│   └── utils/                        # Optional: helper functions, constants 
 │
 ├── docs/
 │   ├── internal_docs/                # Internal project notes, architecture
