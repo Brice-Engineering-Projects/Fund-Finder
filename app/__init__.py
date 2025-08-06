@@ -1,4 +1,6 @@
 """
+app/__init__.py
+
 __init__ file for Flask.   Contains the initialization code for the Flask app.
 
 This file allows Python to treat the directory as a module and helps with
@@ -17,7 +19,7 @@ def create_app(env='development'):
     Factory function that creates and configures the Flask application
     based on the environment (development, production, or testing).
     """
-    app = Flask(__name__, template_folder="../templates")
+    app = Flask(__name__, template_folder="templates")
 
     # Dynamically load the configuration based on the environment
     if env == 'development':
